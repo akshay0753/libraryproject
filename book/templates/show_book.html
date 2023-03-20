@@ -1,0 +1,50 @@
+<html>
+    <title>swapnil bokde website</title>
+    <h1>books in library</h1>
+    <table border="2" style="width: 50%" class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>book id </th>
+                <th>book name</th>
+                <th>book price</th>
+                <th>book qty</th>
+                <th>book published</th>
+                <th>available</th>
+                <th>ACTION</th>
+
+            </tr>
+        </thead>
+        {%for book in all_books %}
+        <tr> 
+            <td>{{book.id}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.qty}}</td>
+
+
+            {%if book.is_published == True %}
+               <td>YES</td>
+               {%else%}
+               <td>NO</td>
+               {%endif%}
+            <td>{{book.is_available}}</td>
+            <td>
+                <a href="{%url "edit" book.id %}" class=btn btn-primary>EDIT</a>
+            </td>
+            <td>
+                <a href="{%url "delete" book.id %}" class=btn btn-primary>delete</a>
+            </td>
+            <td>
+                <a href="{%url "unavailable" book.id %}" class=btn btn-primary>tempary-unavialable</a>
+            </td>
+
+        {%endfor%}
+
+            <a href ="{%url "home"%}" class= <button type="button" class="btn btn-primary">homepage</button><br><br>
+
+ </tr>
+
+
+    
+
+</html>
